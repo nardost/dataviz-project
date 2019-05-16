@@ -9,7 +9,36 @@ export function Map(canvas, data, properties) {
         draw: function() {
             const { width, height } = properties;
             let centered;
-            
+            const interpolators = [
+                // These are from d3-scale.
+                "Viridis",
+                "Inferno",
+                "Magma",
+                "Plasma",
+                "Warm",
+                "Cool",
+                "Rainbow",
+                "CubehelixDefault",
+                // These are from d3-scale-chromatic
+                "Blues",
+                "Greens",
+                "Greys",
+                "Oranges",
+                "Purples",
+                "Reds",
+                "BuGn",
+                "BuPu",
+                "GnBu",
+                "OrRd",
+                "PuBuGn",
+                "PuBu",
+                "PuRd",
+                "RdPu",
+                "YlGnBu",
+                "YlGn",
+                "YlOrBr",
+                "YlOrRd"
+            ];
             const svg = d3.select(canvas).append('svg')
                             .attr('width', width)
                             .attr('height', height);
