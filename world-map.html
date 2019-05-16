@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSC 595: World Map</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <pre>
+        <strong>CSC 595 - Topics in Computer Science (Data Visualization)</strong>
+        Spring 2019
+        World Map
+        <strong>Author: Nardos Tessema</strong>
+        </pre>
+    </div>
+    <div class="container">
+        <div id="canvas"></div>
+        <script type="module">
+            import { Map } from './map.js';
+
+            const canvas = '#canvas';
+            const world = 'https://unpkg.com/world-atlas@1.1.4/world/110m.json';
+            const usa1 = 'https://d3js.org/us-10m.v1.json';
+            const usa2 = 'us.json';
+            const il = 'il-tm-density.json';
+            const properties = { width: 960, height: 960 };
+            const map = new Map(canvas, il, properties);
+            map.draw();
+
+        </script>
+    </div>
+</body>
+
+</html>

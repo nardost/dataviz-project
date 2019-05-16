@@ -1,0 +1,7 @@
+path {
+    //fill: lightcyan;
+    //stroke: lightgray;
+}
+.tracts :hover {
+    fill: steelblue;
+}
