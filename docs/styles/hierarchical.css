@@ -1,0 +1,36 @@
+.cell-t-l {
+  fill: white;
+  cursor: pointer;
+}
+.vertical-label-cell, .horizontal-label-cell {
+  fill: white;
+  stroke: lightgray;
+  stroke-width: .8;
+}
+.circle {
+  cursor: pointer;
+}
+.label {
+  font-family: monospace, 'Courier New', Courier;
+  font-weight: bolder;
+  font-size: .8em;
+  fill: gray;
+
+}
+.row-selected, col-selected {
+  fill: slateblue;
+  cursor: pointer;
+}
+.row-selected-txt, col-selected-txt {
+  fill: whitesmoke;
+}
+.txt-label {
+  font-family: monospace, 'Courier New', Courier;
+  font-weight: bolder;
+  font-size: 1.3em;
+}
+.footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .8em;
+  fill: darkgray;
+}

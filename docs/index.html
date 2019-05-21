@@ -10,8 +10,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <!--Do not import d3 here with the script tag. Do it in Angular...-->
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
   <title>CSC 595</title>
 </head>
 
@@ -19,11 +20,11 @@
   <!-- Begin header -->
   <div class="header text-center viz-bg-light">
     <div class="container">
-      <h1 class="header-h1">GeoSpatial Data Visualization</h1>
-      <h2 class="header-h2">Various Aspects of Life in the US: Census.Gov Data</h2>
+      <h1 class="header-h1">Census.Gov</h1>
+      <h2 class="header-h2">Visualizing Various Aspects of Life in the US</h2>
     </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="index.html">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -32,10 +33,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.html">Illinois Population Density <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="hierarchical.html">Hierarchical Data</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -43,8 +44,8 @@
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#home">Action</a>
+          <a class="dropdown-item" href="#about ">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
@@ -61,56 +62,77 @@
 </nav>
   </div>
   <!-- End header -->
-  content...
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div id="canvas"></div>
+        <script type="module">
+          import { Map } from './scripts/map.js';
+
+          const canvas = '#canvas';
+          const world = 'https://unpkg.com/world-atlas@1.1.4/world/110m.json';
+          const usa1 = 'https://d3js.org/us-10m.v1.json';
+          const usa2 = 'us.json';
+          const il = './data/il-tm-density.json';
+          const properties = { width: 960, height: 960 };
+          const map = new Map(canvas, il, properties);
+          map.draw();
+        </script>
+      </div>
+      <div class="col-lg-6">
+        <p>Sed ut perspiciatis...</p>
+      </div>
+    </div>
+  </div>
   <!-- Begin footer -->
   <div class="footer text-center viz-bg-light">
-    <div class="container-fluid">
+    <div class="members-footer container-fluid">
       <div class="row">
         <div class="viz-bg-dark col-lg-4">
           <div id="yanning">
-            <svg width="64" height="64">
+            <svg width="100" height="100">
               <defs>
                 <pattern id="img-yanning" x="0" y="0" height="1" width="1" patternUnits="objectBoundingBox">
-                  <image height="64" width="64" xlink:href="./images/2.png" />
+                  <image height="80" width="80" xlink:href="./images/yanning.jpeg" />
                 </pattern>
               </defs>
-              <rect x="0" y="0" width="64" height="64" fill="url(#img-yanning)" />
+              <circle cx="50" cy="50" r = "40" fill="url(#img-yanning)" />
             </svg>
             <p class="header-h2">Yannning Cui</p>
           </div>
         </div>
         <div class="viz-bg-dark col-lg-4">
           <div id="nardos">
-            <svg width="64" height="64">
+            <svg width="100" height="100">
               <defs>
                 <pattern id="img-nardos" x="0" y="0" height="1" width="1" patternUnits="objectBoundingBox">
-                  <image height="64" width="64"  xlink:href="./images/1.png" />
+                  <image height="80" width="80" xlink:href="./images/1.png" />
                 </pattern>
               </defs>
-              <rect x="0" y="0" width="64" height="64" fill="url(#img-nardos)" />
+              <circle cx="50" cy="50" r = "40" fill="url(#img-nardos)" />
             </svg>
             <p class="header-h2">Nardos Tessema</p>
           </div>
         </div>
         <div class="viz-bg-dark col-lg-4">
           <div id="mouhamad">
-            <svg width="64" height="64">
+            <svg width="100" height="100">
               <defs>
                 <pattern id="img-mouhamad" x="0" y="0" height="1" width="1" patternUnits="objectBoundingBox">
-                  <image height="64" width="64" xlink:href="./images/3.png" />
+                  <image height="80" width="80" xlink:href="./images/3.png" />
                 </pattern>
               </defs>
-              <rect x="0" y="0" width="64" height="64" fill="url(#img-mouhamad)" />
+              <circle cx="50" cy="50" r = "40" fill="url(#img-mouhamad)" />
             </svg>
             <p class="header-h2">Mouhamad Mashat</p>
           </div>
         </div>
       </div>
-      <div>
-        <span class="header-h1">CSC 595</span>
-        <span class="header-h2">Interactive Data Visualizations for the Web</span>
-        <p class="cursive-1">DePaul University - College of Digital Media<br>Spring 2019</p>
-      <div>
+    </div>
+    <div>
+      <span class="header-h1">CSC 595</span><br>
+      <span class="header-h2">Interactive Data Visualizations for the Web</span><br>
+      <span class="cursive-1">DePaul University - College of Digital Media<br>Spring 2019</span><br>
     </div>
   </div>
   <!-- End footer -->
