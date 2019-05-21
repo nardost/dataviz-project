@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <!--Do not import d3 here with the script tag. Do it in Angular...-->
   <title>CSC 595</title>
@@ -18,21 +19,76 @@
   <!-- Begin header -->
   <div class="header text-center viz-bg-light">
     <div class="container">
-      <h1 class="header-h1">CSC 595</h1>
-      <h2 class="header-h2">Interactive Data Visualizations for the Web</h2>
-      <p class="cursive-1">DePaul University<br>College of Digital Media<br>Spring 2019</p>
+      <h1 class="header-h1">GeoSpatial Data Visualization</h1>
+      <h2 class="header-h2">Various Aspects of Life in the US: Census.Gov Data</h2>
     </div>
     <nav class="navbar navbar-expand-sm viz-bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" [ngClass]="{ 'show': navbarOpen }">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Link 1 <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Link 2</a>
-          <a class="nav-item nav-link" href="#">Link 3</a>
-          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <!--navigation button-->
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Action</button>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+          <!--navigation button-->
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Action</button>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+          <!--navigation button-->
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Action</button>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+          <!--navigation button-->
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Action</button>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -41,39 +97,53 @@
   content...
   <!-- Begin footer -->
   <div class="footer text-center viz-bg-light">
-    <div class="viz-bg-dark font-small special-color-dark pt-4">
-      <div class="container">
-        <ul class="list-unstyled list-inline text-center">
-          <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1">
-              <i class="fab fa-facebook-f"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1">
-              <i class="fab fa-twitter"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-gplus mx-1">
-              <i class="fab fa-google-plus-g"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-li mx-1">
-              <i class="fab fa-linkedin-in"> </i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a class="btn-floating btn-dribbble mx-1">
-              <i class="fab fa-dribbble"> </i>
-            </a>
-          </li>
-        </ul>
-        <div class="text-center">
-          CSC 595 - Interactive Data Visualizations for the Web
+    <div class="container-fluid">
+      <div class="row">
+        <div class="viz-bg-dark col-lg-4">
+          <div id="yanning">
+            <svg width="64" height="64">
+              <defs>
+                <pattern id="img-yanning" x="0" y="0" height="1" width="1" patternUnits="objectBoundingBox">
+                  <image height="64" width="64" xlink:href="./images/2.png" />
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="64" height="64" fill="url(#img-yanning)" />
+            </svg>
+            <p class="header-h2">Yannning Cui</p>
+          </div>
+        </div>
+        <div class="viz-bg-dark col-lg-4">
+          <div id="nardos">
+            <svg width="64" height="64">
+              <defs>
+                <pattern id="img-nardos" x="0" y="0" height="1" width="1" patternUnits="objectBoundingBox">
+                  <image height="64" width="64"  xlink:href="./images/1.png" />
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="64" height="64" fill="url(#img-nardos)" />
+            </svg>
+            <p class="header-h2">Nardos Tessema</p>
+          </div>
+        </div>
+        <div class="viz-bg-dark col-lg-4">
+          <div id="mouhamad">
+            <svg width="64" height="64">
+              <defs>
+                <pattern id="img-mouhamad" x="0" y="0" height="1" width="1" patternUnits="objectBoundingBox">
+                  <image height="64" width="64" xlink:href="./images/3.png" />
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="64" height="64" fill="url(#img-mouhamad)" />
+            </svg>
+            <p class="header-h2">Mouhamad Mashat</p>
+          </div>
         </div>
       </div>
+      <div>
+        <span class="header-h1">CSC 595</span>
+        <span class="header-h2">Interactive Data Visualizations for the Web</span>
+        <p class="cursive-1">DePaul University - College of Digital Media<br>Spring 2019</p>
+      <div>
     </div>
   </div>
   <!-- End footer -->

@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Monoton Regular';
+    src: url('fonts/Monoton-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('fonts/Comfortaa[wght].ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Allura Regular';
+    src: url('fonts/Allura-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'MavenPro Regular';
+    src: url('fonts/MavenPro-Regular.ttf') format('truetype');
+}
+.viz-bg-dark {
+    background-color: #2eb8b8;
+    color: #f2f2f2;
+}
+.viz-bg-light {
+    background-color: #f2f2f2;
+    color: #2eb8b8;
+}
+.header, .footer {
+    color: #2eb8b8;
+}
+.header {
+    border-bottom: #2eb8b8 8px solid;
+    padding-top: 10px;
+}
+.footer {
+    border-top: #2eb8b8 8px solid;
+}
+.header-h1 {
+    font-family: 'Monoton Regular';
+}
+.header-h2 {
+    font-family: 'Comfortaa';
+}
+.cursive-1 {
+    font-family: 'Allura Regular';
+}
+.footer-li {
+    font-family: 'MavenPro Regular';
+    font-size: 1.2em;
+}
